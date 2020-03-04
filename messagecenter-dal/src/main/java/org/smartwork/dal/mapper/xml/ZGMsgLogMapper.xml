@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.smartwork.dal.mapper.ZGMsgLogMapper">
+  <resultMap id="BaseResultMap" type="org.smartwork.dal.entity.ZGMsgLog">
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="create_by" jdbcType="VARCHAR" property="createBy" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="update_by" jdbcType="VARCHAR" property="updateBy" />
+    <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+    <result column="msg_type" jdbcType="TINYINT" property="msgType" />
+    <result column="content" jdbcType="VARCHAR" property="content" />
+    <result column="success_state" jdbcType="TINYINT" property="successState" />
+    <result column="retry_count" jdbcType="INTEGER" property="retryCount" />
+    <result column="failure_count" jdbcType="INTEGER" property="failureCount" />
+    <result column="failure_result" jdbcType="VARCHAR" property="failureResult" />
+    <result column="next_exe_time" jdbcType="TIMESTAMP" property="nextExeTime" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, create_by, create_time, update_by, update_time, msg_type, content, success_state, 
+    retry_count, failure_count, failure_result,next_exe_time
+  </sql>
+</mapper>

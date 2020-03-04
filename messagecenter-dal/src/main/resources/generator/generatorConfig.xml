@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+        PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+<generatorConfiguration>
+    <!-- 数据库驱动:换成你本地的驱动包位置-->
+    <classPathEntry
+            location="C:/Users/hankh/.m2/repository/mysql/mysql-connector-java/8.0.19/mysql-connector-java-8.0.19.jar"/>
+    <context id="DB2Tables" targetRuntime="MyBatis3">
+        <property name="javaFileEncoding" value="UTF-8"/>
+        <!-- 自定义的注释生成插件-->
+        <plugin type="com.chrm.mybatis.generator.plugins.CommentPlugin">
+            <!-- 抑制警告 -->
+            <property name="suppressTypeWarnings" value="true"/>
+            <!-- 是否去除自动生成的注释 true：是 ： false:否 -->
+            <property name="suppressAllComments" value="false"/>
+            <!-- 是否生成注释代时间戳-->
+            <property name="suppressDate" value="true"/>
+        </plugin>
+        <!-- 整合lombok-->
+        <plugin type="com.chrm.mybatis.generator.plugins.LombokPlugin">
+            <property name="hasLombok" value="true"/>
+            <!--设置表对应名称-->
+            <property name="fb_zg_ad" value="广告"/>
+            <property name="fb_zg_advert" value="广告位"/>
+            <property name="fb_zg_msg_log" value="消息日志"/>
+            <property name="fb_zg_msg_template" value="消息模板"/>
+            <property name="fb_zg_news" value="新闻"/>
+            <property name="fb_zg_news_attach" value="新闻附件"/>
+            <property name="fb_zg_news_classify" value="新闻分类"/>
+        </plugin>
+        <!--整合序列化-->
+        <plugin type="org.mybatis.generator.plugins.SerializablePlugin">
+            <property name="suppressJavaInterface" value="true"/>
+        </plugin>
+        <!--整合provider-->
+        <plugin type="com.chrm.mybatis.generator.plugins.ProviderPlugin">
+            <property name="targetProject" value="../messagecenter-provider/src/main/java"></property>
+            <property name="servicePackage" value="org.smartwork.biz.service"></property>
+            <property name="providerPackage" value="org.smartwork.provider"/>
+            <property name="providerSuffix" value="Controller"/>
+            <property name="servicePreffix" value="I"></property>
+            <property name="serviceSuffix" value="Service"></property>
+            <property name="superProvider" value="org.forbes.provider.BaseProvider"></property>
+            <!--设置表对应名称-->
+            <!--设置表对应名称-->
+            <property name="fb_zg_ad" value="广告"/>
+            <property name="fb_zg_advert" value="广告位"/>
+            <property name="fb_zg_msg_log" value="消息日志"/>
+            <property name="fb_zg_msg_template" value="消息模板"/>
+            <property name="fb_zg_news" value="新闻"/>
+            <property name="fb_zg_news_attach" value="新闻附件"/>
+            <property name="fb_zg_news_classify" value="新闻分类"/>
+        </plugin>
+        <!--整合service-->
+        <plugin type="com.chrm.mybatis.generator.plugins.ServicePlugin">
+            <property name="targetProject" value="../messagecenter-biz/src/main/java"></property>
+            <property name="servicePackage" value="org.smartwork.biz.service"></property>
+            <property name="serviceImplPackage" value="org.smartwork.biz.service.impl"></property>
+            <property name="mapperPackage" value="org.smartwork.dal.mapper"/>
+            <property name="servicePreffix" value="I"></property>
+            <property name="serviceSuffix" value="Service"></property>
+            <property name="serviceImplSuffix" value="Impl"></property>
+            <property name="mapperSuffix" value="Mapper"></property>
+            <property name="superServiceInterface"
+                      value="com.baomidou.mybatisplus.extension.service.IService"></property>
+            <property name="superServiceImpl"
+                      value="com.baomidou.mybatisplus.extension.service.impl.ServiceImpl"></property>
+        </plugin>
+        <commentGenerator>
+            <property name="suppressDate" value="true"/>
+            <!-- 是否去除自动生成的注释 true：是 ： false:否 -->
+            <property name="suppressAllComments" value="true"/>
+        </commentGenerator>
+        <!--数据库链接URL，用户名、密码 -->
+        <jdbcConnection driverClass="com.mysql.jdbc.Driver"
+                        connectionURL="jdbc:mysql://122.51.238.114:4408/smartworkmessage" userId="smartworkmessage"
+                        password="XNyXEETbwjbzdFjt">
+        </jdbcConnection>
+        <javaTypeResolver>
+            <property name="forceBigDecimals" value="false"/>
+        </javaTypeResolver>
+        <!-- 生成模型的包名和位置-->
+        <javaModelGenerator targetPackage="org.smartwork.dal.entity" targetProject="src/main/java">
+            <property name="enableSubPackages" value="true"/>
+            <property name="rootClass" value="org.forbes.comm.entity.BaseEntity"/>
+            <property name="trimStrings" value="true"/>
+        </javaModelGenerator>
+        <!-- 生成映射文件的包名和位置-->
+        <sqlMapGenerator targetPackage="org.smartwork.dal.mapper.xml" targetProject="src/main/java">
+            <property name="enableSubPackages" value="true"/>
+        </sqlMapGenerator>
+        <!-- 生成DAO的包名和位置-->
+        <javaClientGenerator type="XMLMAPPER" targetPackage="org.smartwork.dal.mapper" targetProject="src/main/java">
+            <property name="enableSubPackages" value="true"/>
+        </javaClientGenerator>
+        <table tableName="fb_zg_ad" domainObjectName="ZGAd" enableSelectByPrimaryKey="true"
+               enableDeleteByPrimaryKey="false"
+               enableUpdateByPrimaryKey="false"
+               enableCountByExample="false"
+               enableUpdateByExample="false"
+               enableDeleteByExample="false"
+               enableSelectByExample="false"
+               selectByExampleQueryId="false"
+               selectByPrimaryKeyQueryId="false">
+            <property name="useActualColumnNames" value="false"/>
+        </table>
+        <table tableName="fb_zg_advert" domainObjectName="ZGAdvert" enableSelectByPrimaryKey="true"
+               enableDeleteByPrimaryKey="false"
+               enableUpdateByPrimaryKey="false"
+               enableCountByExample="false"
+               enableUpdateByExample="false"
+               enableDeleteByExample="false"
+               enableSelectByExample="false"
+               selectByExampleQueryId="false"
+               selectByPrimaryKeyQueryId="false">
+            <property name="useActualColumnNames" value="false"/>
+        </table>
+        <table tableName="fb_zg_msg_log" domainObjectName="ZGMsgLog" enableSelectByPrimaryKey="true"
+               enableDeleteByPrimaryKey="false"
+               enableUpdateByPrimaryKey="false"
+               enableCountByExample="false"
+               enableUpdateByExample="false"
+               enableDeleteByExample="false"
+               enableSelectByExample="false"
+               selectByExampleQueryId="false"
+               selectByPrimaryKeyQueryId="false">
+            <property name="useActualColumnNames" value="false"/>
+        </table>
+        <table tableName="fb_zg_msg_template" domainObjectName="ZGMsgTemplate" enableSelectByPrimaryKey="true"
+               enableDeleteByPrimaryKey="false"
+               enableUpdateByPrimaryKey="false"
+               enableCountByExample="false"
+               enableUpdateByExample="false"
+               enableDeleteByExample="false"
+               enableSelectByExample="false"
+               selectByExampleQueryId="false"
+               selectByPrimaryKeyQueryId="false">
+            <property name="useActualColumnNames" value="false"/>
+        </table>
+        <table tableName="fb_zg_news" domainObjectName="ZGNews" enableSelectByPrimaryKey="true"
+               enableDeleteByPrimaryKey="false"
+               enableUpdateByPrimaryKey="false"
+               enableCountByExample="false"
+               enableUpdateByExample="false"
+               enableDeleteByExample="false"
+               enableSelectByExample="false"
+               selectByExampleQueryId="false"
+               selectByPrimaryKeyQueryId="false">
+            <property name="useActualColumnNames" value="false"/>
+        </table>
+        <table tableName="fb_zg_news_attach" domainObjectName="ZGNewsAttach" enableSelectByPrimaryKey="true"
+               enableDeleteByPrimaryKey="false"
+               enableUpdateByPrimaryKey="false"
+               enableCountByExample="false"
+               enableUpdateByExample="false"
+               enableDeleteByExample="false"
+               enableSelectByExample="false"
+               selectByExampleQueryId="false"
+               selectByPrimaryKeyQueryId="false">
+            <property name="useActualColumnNames" value="false"/>
+        </table>
+        <table tableName="fb_zg_news_classify" domainObjectName="ZGNewsClassify" enableSelectByPrimaryKey="true"
+               enableDeleteByPrimaryKey="false"
+               enableUpdateByPrimaryKey="false"
+               enableCountByExample="false"
+               enableUpdateByExample="false"
+               enableDeleteByExample="false"
+               enableSelectByExample="false"
+               selectByExampleQueryId="false"
+               selectByPrimaryKeyQueryId="false">
+            <property name="useActualColumnNames" value="false"/>
+        </table>
+    </context>
+</generatorConfiguration>

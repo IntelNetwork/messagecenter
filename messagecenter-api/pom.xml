@@ -8,18 +8,8 @@
         <version>0.0.1-SNAPSHOT</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
-    <artifactId>messagecenter-provider</artifactId>
+    <artifactId>messagecenter-api</artifactId>
     <dependencies>
-        <dependency>
-            <groupId>com.smartwork</groupId>
-            <artifactId>messagecenter-comm</artifactId>
-            <version>0.0.1-SNAPSHOT</version>
-        </dependency>
-        <dependency>
-            <groupId>com.smartwork</groupId>
-            <artifactId>messagecenter-dal</artifactId>
-            <version>0.0.1-SNAPSHOT</version>
-        </dependency>
         <dependency>
             <groupId>com.smartwork</groupId>
             <artifactId>messagecenter-dal</artifactId>

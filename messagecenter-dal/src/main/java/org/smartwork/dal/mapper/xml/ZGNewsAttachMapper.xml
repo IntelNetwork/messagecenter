@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.smartwork.dal.mapper.ZGNewsAttachMapper">
+  <resultMap id="BaseResultMap" type="org.smartwork.dal.entity.ZGNewsAttach">
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="create_by" jdbcType="VARCHAR" property="createBy" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="update_by" jdbcType="VARCHAR" property="updateBy" />
+    <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+    <result column="news_id" jdbcType="BIGINT" property="newsId" />
+    <result column="cn_name" jdbcType="VARCHAR" property="cnName" />
+    <result column="suffix" jdbcType="VARCHAR" property="suffix" />
+    <result column="file_path" jdbcType="VARCHAR" property="filePath" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, create_by, create_time, update_by, update_time, news_id, cn_name, suffix, file_path
+  </sql>
+</mapper>

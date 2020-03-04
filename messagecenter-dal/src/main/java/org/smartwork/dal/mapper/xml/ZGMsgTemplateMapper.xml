@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.smartwork.dal.mapper.ZGMsgTemplateMapper">
+  <resultMap id="BaseResultMap" type="org.smartwork.dal.entity.ZGMsgTemplate">
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="create_by" jdbcType="VARCHAR" property="createBy" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="update_by" jdbcType="VARCHAR" property="updateBy" />
+    <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+    <result column="msg_type" jdbcType="TINYINT" property="msgType" />
+    <result column="bus_code" jdbcType="VARCHAR" property="busCode" />
+    <result column="content" jdbcType="VARCHAR" property="content" />
+    <result column="templateId" jdbcType="template_id" property="content" />
+    <result column="retry_count" jdbcType="INTEGER" property="retryCount" />
+    <result column="retry_interval" jdbcType="INTEGER" property="retryInterval" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, create_by, create_time, update_by, update_time, msg_type, bus_code, content,retry_count,
+    template_id,retry_interval
+  </sql>
+</mapper>
