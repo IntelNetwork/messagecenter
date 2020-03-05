@@ -16,7 +16,7 @@
         <version>2.2.4.RELEASE</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
-    <groupId>com.smartwork</groupId>
+    <groupId>org.smartwork</groupId>
     <artifactId>smartwork_messagecenter</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>smartwork_messagecenter</name>

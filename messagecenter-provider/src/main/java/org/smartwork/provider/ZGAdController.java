@@ -94,7 +94,8 @@ public class ZGAdController extends BaseProvider<IZGAdService, ZGAd> {
             result.setMessage(String.format(MsgBizResultEnum.CANCELLED.getBizFormateMessage(),ad.getName()));
             return result;
         }
-        baseService.update(new UpdateWrapper<ZGAd>().set(true,"release_state",releaseState));
+        baseService.update(new UpdateWrapper<ZGAd>().set("release_state",releaseState)
+                .eq("id",ad.getId()));
         return result;
     }
 }

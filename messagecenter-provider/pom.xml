@@ -4,29 +4,29 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <parent>
         <artifactId>smartwork_messagecenter</artifactId>
-        <groupId>com.smartwork</groupId>
+        <groupId>org.smartwork</groupId>
         <version>0.0.1-SNAPSHOT</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
     <artifactId>messagecenter-provider</artifactId>
     <dependencies>
         <dependency>
-            <groupId>com.smartwork</groupId>
+            <groupId>org.smartwork</groupId>
             <artifactId>messagecenter-comm</artifactId>
             <version>0.0.1-SNAPSHOT</version>
         </dependency>
         <dependency>
-            <groupId>com.smartwork</groupId>
+            <groupId>org.smartwork</groupId>
             <artifactId>messagecenter-dal</artifactId>
             <version>0.0.1-SNAPSHOT</version>
         </dependency>
         <dependency>
-            <groupId>com.smartwork</groupId>
+            <groupId>org.smartwork</groupId>
             <artifactId>messagecenter-dal</artifactId>
             <version>0.0.1-SNAPSHOT</version>
         </dependency>
         <dependency>
-            <groupId>com.smartwork</groupId>
+            <groupId>org.smartwork</groupId>
             <artifactId>messagecenter-biz</artifactId>
             <version>0.0.1-SNAPSHOT</version>
         </dependency>

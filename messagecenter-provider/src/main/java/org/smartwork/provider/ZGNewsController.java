@@ -62,7 +62,9 @@ public class ZGNewsController extends BaseProvider<IZGNewsService, ZGNews> {
             result.setMessage(String.format(MsgBizResultEnum.N_CANCELLED.getBizFormateMessage(),news.getTitle()));
             return result;
         }
-        baseService.update(new UpdateWrapper<ZGNews>().set(true,"release_state",releaseState));
+        baseService.update(new UpdateWrapper<ZGNews>()
+                .set("release_state",releaseState)
+                .eq("id",news.getId()));
         return result;
     }
 }

@@ -78,4 +78,7 @@ public class ZGMsgLog extends BaseEntity {
 
     @ApiModelProperty(value = "下次执行时间",example="")
     private Date nextExeTime;
+
+    @ApiModelProperty(value = "消息ID",example="")
+    private String  msgId;
 }

@@ -13,10 +13,11 @@
     <result column="retry_count" jdbcType="INTEGER" property="retryCount" />
     <result column="failure_count" jdbcType="INTEGER" property="failureCount" />
     <result column="failure_result" jdbcType="VARCHAR" property="failureResult" />
+    <result column="msg_id" jdbcType="VARCHAR" property="msgId" />
     <result column="next_exe_time" jdbcType="TIMESTAMP" property="nextExeTime" />
   </resultMap>
   <sql id="Base_Column_List">
     id, create_by, create_time, update_by, update_time, msg_type, content, success_state, 
-    retry_count, failure_count, failure_result,next_exe_time
+    retry_count, failure_count, failure_result,next_exe_time,msg_id
   </sql>
 </mapper>
