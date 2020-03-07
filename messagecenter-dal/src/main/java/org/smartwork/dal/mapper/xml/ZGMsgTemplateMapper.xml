@@ -10,7 +10,7 @@
     <result column="msg_type" jdbcType="TINYINT" property="msgType" />
     <result column="bus_code" jdbcType="VARCHAR" property="busCode" />
     <result column="content" jdbcType="VARCHAR" property="content" />
-    <result column="templateId" jdbcType="template_id" property="content" />
+    <result column="template_id" jdbcType="VARCHAR" property="templateId" />
     <result column="retry_count" jdbcType="INTEGER" property="retryCount" />
     <result column="retry_interval" jdbcType="INTEGER" property="retryInterval" />
   </resultMap>

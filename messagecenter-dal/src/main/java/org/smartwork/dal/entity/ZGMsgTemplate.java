@@ -5,6 +5,8 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 import org.forbes.comm.annotations.ValidEnum;
+import org.forbes.comm.constant.SaveValid;
+import org.forbes.comm.constant.UpdateValid;
 import org.forbes.comm.entity.BaseEntity;
 import org.smartwork.comm.enums.MsgTypeEnum;
 
@@ -25,8 +27,8 @@ public class ZGMsgTemplate extends BaseEntity {
      * Column:    msg_type
      * Nullable:  true
      */
-    @ApiModelProperty(value = "0-短信1-公众号2-邮件",example="")
-    @NotNull(message = "消息类型为空")
+    @ApiModelProperty(value = "0-短信1-公众号2-邮件",example="0")
+    @NotNull(message = "消息类型为空",groups = {UpdateValid.class, SaveValid.class})
     @ValidEnum(classzz = MsgTypeEnum.class,bizCode = "006002001",bizErrorMsg = "%s消息类型不存在")
     private Integer msgType;
 
@@ -38,7 +40,7 @@ public class ZGMsgTemplate extends BaseEntity {
      * Nullable:  true
      */
     @ApiModelProperty(value = "如：register会员注册",example="")
-    @NotEmpty(message = "业务编码为空")
+    @NotEmpty(message = "业务编码为空",groups = {UpdateValid.class, SaveValid.class})
     @ValidEnum(classzz = MsgTypeEnum.class,bizCode = "006002001",bizErrorMsg = "%s业务编码不存在")
     private String busCode;
 

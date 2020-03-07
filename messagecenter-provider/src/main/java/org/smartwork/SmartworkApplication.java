@@ -4,9 +4,11 @@ import org.forbes.comm.constant.CommonConstant;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
+import org.springframework.cloud.openfeign.EnableFeignClients;
 import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
 @SpringBootApplication(scanBasePackages = {"org.forbes", "org.smartwork"})
+@EnableFeignClients(basePackages = {"org.forbes", "org.smartwork"})
 @EnableDiscoveryClient
 @EnableSwagger2
 public class SmartworkApplication {

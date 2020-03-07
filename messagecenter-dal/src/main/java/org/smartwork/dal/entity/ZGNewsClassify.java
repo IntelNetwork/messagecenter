@@ -4,6 +4,8 @@ import com.baomidou.mybatisplus.annotation.TableName;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
+import org.forbes.comm.constant.SaveValid;
+import org.forbes.comm.constant.UpdateValid;
 import org.forbes.comm.entity.BaseEntity;
 
 import javax.validation.constraints.NotEmpty;
@@ -23,7 +25,7 @@ public class ZGNewsClassify extends BaseEntity {
      * Nullable:  true
      */
     @ApiModelProperty(value = "分类名称",example="")
-    @NotEmpty(message = "分类名称为空")
+    @NotEmpty(message = "分类名称为空",groups = {UpdateValid.class, SaveValid.class})
     private String name;
 
     /**

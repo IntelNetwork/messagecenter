@@ -6,6 +6,8 @@ import io.swagger.annotations.ApiModelProperty;
 import java.util.Date;
 import lombok.Data;
 import org.forbes.comm.annotations.ValidEnum;
+import org.forbes.comm.constant.SaveValid;
+import org.forbes.comm.constant.UpdateValid;
 import org.forbes.comm.entity.BaseEntity;
 import org.smartwork.comm.enums.AdTypeEnum;
 
@@ -27,7 +29,7 @@ public class ZGAd extends BaseEntity {
      * Nullable:  true
      */
     @ApiModelProperty(value = "广告编码",example="")
-    @NotEmpty(message="广告编码为空")
+    @NotEmpty(message="广告编码为空",groups = {UpdateValid.class, SaveValid.class})
     private String adCode;
 
     /**
@@ -38,7 +40,7 @@ public class ZGAd extends BaseEntity {
      * Nullable:  true
      */
     @ApiModelProperty(value = "广告名称",example="")
-    @NotEmpty(message="广告名称为空")
+    @NotEmpty(message="广告名称为空",groups = {UpdateValid.class, SaveValid.class})
     private String name;
 
     /**
@@ -48,7 +50,7 @@ public class ZGAd extends BaseEntity {
      * Column:    release_state
      * Nullable:  true
      */
-    @ApiModelProperty(value = "0-未发布1-已发布2-已取消",example="")
+    @ApiModelProperty(value = "0-未发布1-已发布2-已取消",example="0")
     private Integer releaseState;
 
     /**
@@ -59,7 +61,7 @@ public class ZGAd extends BaseEntity {
      * Nullable:  true
      */
     @ApiModelProperty(value = "到期时间",example="")
-    @NotNull(message ="到期时间为空")
+    @NotNull(message ="到期时间为空",groups = {UpdateValid.class, SaveValid.class})
     private Date expireDate;
 
     /**
@@ -69,9 +71,9 @@ public class ZGAd extends BaseEntity {
      * Column:    ad_type
      * Nullable:  true
      */
-    @ApiModelProperty(value = "0-滚动文字1-轮播图2-静态图",example="")
+    @ApiModelProperty(value = "0-滚动文字1-轮播图2-静态图",example="0")
     @ValidEnum(classzz = AdTypeEnum.class,bizCode = "006001002",bizErrorMsg = "%s广告类型不存在")
-    @NotNull(message ="广告类型为空")
+    @NotNull(message ="广告类型为空",groups = {UpdateValid.class, SaveValid.class})
     private Integer adType;
 
     /**
@@ -91,7 +93,7 @@ public class ZGAd extends BaseEntity {
      * Column:    new_win
      * Nullable:  true
      */
-    @ApiModelProperty(value = "0-否1-是",example="")
+    @ApiModelProperty(value = "0-否1-是",example="0")
     private Integer newWin;
 
     /**
@@ -111,6 +113,6 @@ public class ZGAd extends BaseEntity {
      * Column:    orders
      * Nullable:  true
      */
-    @ApiModelProperty(value = "排序",example="")
+    @ApiModelProperty(value = "排序",example="0")
     private Integer orders;
 }

@@ -9,6 +9,8 @@ import java.util.Date;
 import java.util.List;
 
 import lombok.Data;
+import org.forbes.comm.constant.SaveValid;
+import org.forbes.comm.constant.UpdateValid;
 import org.forbes.comm.entity.BaseEntity;
 
 import javax.validation.constraints.NotEmpty;
@@ -36,7 +38,7 @@ public class ZGNews extends BaseEntity {
      * Nullable:  true
      */
     @ApiModelProperty(value = "标题",example="")
-    @NotEmpty(message = "标题为空")
+    @NotEmpty(message = "标题为空",groups = {UpdateValid.class, SaveValid.class})
     private String title;
 
     /**

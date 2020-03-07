@@ -5,6 +5,8 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 import org.forbes.comm.annotations.ValidUnique;
+import org.forbes.comm.constant.SaveValid;
+import org.forbes.comm.constant.UpdateValid;
 import org.forbes.comm.entity.BaseEntity;
 
 import javax.validation.constraints.NotEmpty;
@@ -24,7 +26,7 @@ public class ZGAdvert extends BaseEntity {
      */
     @ApiModelProperty(value = "广告位编码",example="")
     @ValidUnique(column = "ad_code",bizCode = "006001001",bizErrorMsg = "%s编码已经存在")
-    @NotEmpty(message="广告位编码为空")
+    @NotEmpty(message="广告位编码为空",groups = {UpdateValid.class, SaveValid.class})
     private String adCode;
 
     /**

@@ -4,11 +4,11 @@
     <modelVersion>4.0.0</modelVersion>
     <packaging>pom</packaging>
     <modules>
-        <module>messagecenter-biz</module>
-        <module>messagecenter-provider</module>
-        <module>messagecenter-dal</module>
-        <module>messagecenter-api</module>
         <module>messagecenter-comm</module>
+        <module>messagecenter-dal</module>
+        <module>messagecenter-biz</module>
+        <module>messagecenter-api</module>
+        <module>messagecenter-provider</module>
     </modules>
     <parent>
         <groupId>org.springframework.boot</groupId>
@@ -81,6 +81,11 @@
             <optional>true</optional>
         </dependency>
         <dependency>
+            <groupId>com.baomidou</groupId>
+            <artifactId>mybatis-plus-boot-starter</artifactId>
+            <version>3.3.1</version>
+        </dependency>
+        <dependency>
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
             <scope>runtime</scope>
@@ -136,6 +141,9 @@
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
+                <configuration>
+                    <mainClass>org.smartwork.SmartworkApplication</mainClass>
+                </configuration>
             </plugin>
         </plugins>
     </build>

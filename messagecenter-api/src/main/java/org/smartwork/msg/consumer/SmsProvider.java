@@ -41,12 +41,12 @@ public class SmsProvider {
     /***接收kafka消息
      * @param consumerRecord
      */
-    @KafkaListener(topics="sendSms")
+    @KafkaListener(topics="topicSms")
     public void sendMsg(ConsumerRecord consumerRecord) {
-        Optional<Object> kfkaMsg =  Optional.ofNullable(consumerRecord);
+        Optional<ConsumerRecord> kfkaMsg =  Optional.ofNullable(consumerRecord);
         if(kfkaMsg.isPresent()){
-            Object obj  = kfkaMsg.get();
-            String receJson = obj.toString();
+            ConsumerRecord obj  = kfkaMsg.get();
+            String receJson = obj.value().toString();
             log.debug("====短信接收参数===="+receJson);
             Map<String,Object> receMap = JSON.parseObject(receJson,Map.class);
             String busCode = receMap.get("busCode").toString();
@@ -72,7 +72,8 @@ public class SmsProvider {
                    /**自定义消息模板**/
                    if(ConvertUtils.isNotEmpty(templateContent)){
                        content = String.format(templateContent,content.split(","));
-                       Map<String,String> resultMap =  SMSUtils.SMSBuild.build(new YmrtSmsStrategy())
+                       Map<String,String> resultMap =  SMSUtils
+                               .SMSBuild.build(new YmrtSmsStrategy())
                                .setMobiles(mobile.split(","))
                                .setContent(content)
                                .sendSMS();
@@ -85,6 +86,8 @@ public class SmsProvider {
                 log.error("{}=====暂无对应消息模板",busCode);
             }
             System.err.println(obj);
+        } else {
+            log.error("============="+JSON.toJSONString(consumerRecord));
         }
     }
 
