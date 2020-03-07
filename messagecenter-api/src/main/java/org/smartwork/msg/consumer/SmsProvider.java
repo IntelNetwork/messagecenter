@@ -47,7 +47,7 @@ public class SmsProvider {
         if(kfkaMsg.isPresent()){
             ConsumerRecord obj  = kfkaMsg.get();
             String receJson = obj.value().toString();
-            log.debug("====短信接收参数===="+receJson);
+            log.error("====短信接收参数===="+receJson);
             Map<String,Object> receMap = JSON.parseObject(receJson,Map.class);
             String busCode = receMap.get("busCode").toString();
             String mobile = receMap.get("mobile").toString();
