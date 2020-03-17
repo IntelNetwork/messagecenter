@@ -3,12 +3,15 @@ package org.smartwork.dal.entity;
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
+import com.baomidou.mybatisplus.core.enums.SqlKeyword;
+import com.fasterxml.jackson.annotation.JsonFormat;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.util.Date;
 import java.util.List;
 
 import lombok.Data;
+import org.forbes.comm.annotations.QueryColumn;
 import org.forbes.comm.constant.SaveValid;
 import org.forbes.comm.constant.UpdateValid;
 import org.forbes.comm.entity.BaseEntity;
@@ -39,6 +42,7 @@ public class ZGNews extends BaseEntity {
      */
     @ApiModelProperty(value = "标题",example="")
     @NotEmpty(message = "标题为空",groups = {UpdateValid.class, SaveValid.class})
+    @QueryColumn(column = "title",sqlKeyword = SqlKeyword.LIKE)
     private String title;
 
     /**
@@ -59,6 +63,7 @@ public class ZGNews extends BaseEntity {
      * Nullable:  true
      */
     @ApiModelProperty(value = "发布时间",example="")
+    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss")
     private Date releaseTime;
 
     /**
@@ -69,6 +74,7 @@ public class ZGNews extends BaseEntity {
      * Nullable:  true
      */
     @ApiModelProperty(value = "内容",example="")
+    @QueryColumn(column = "content",sqlKeyword = SqlKeyword.LIKE)
     private String content;
 
 

@@ -39,7 +39,7 @@ public enum AdTypeEnum {
      * @param code
      * @return
      */
-    public static boolean existsCode(Integer code){
+    public static boolean existsCode(Object code){
         return Arrays.asList(AdTypeEnum.values()).stream()
                 .filter(adTypeEnum -> ConvertUtils.isNotEmpty(code)&&adTypeEnum.getCode().equals(code))
                 .count() >=  1;

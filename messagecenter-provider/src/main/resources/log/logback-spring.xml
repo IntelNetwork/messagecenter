@@ -159,9 +159,9 @@
     -->
     <!--开发环境:打印控制台-->
     <springProfile name="dev">
-        <logger name="org.smartwork" level="debug"/>
+        <logger name="org.smartwork" level="DEBUG"/>
     </springProfile>
-    <root level="info">
+    <root level="DEBUG">
         <appender-ref ref="CONSOLE"/>
         <appender-ref ref="DEBUG_FILE"/>
         <appender-ref ref="INFO_FILE"/>

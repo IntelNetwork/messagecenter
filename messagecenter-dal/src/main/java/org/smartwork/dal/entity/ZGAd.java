@@ -1,10 +1,13 @@
 package org.smartwork.dal.entity;
 
 import com.baomidou.mybatisplus.annotation.TableName;
+import com.baomidou.mybatisplus.core.enums.SqlKeyword;
+import com.fasterxml.jackson.annotation.JsonFormat;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.util.Date;
 import lombok.Data;
+import org.forbes.comm.annotations.QueryColumn;
 import org.forbes.comm.annotations.ValidEnum;
 import org.forbes.comm.constant.SaveValid;
 import org.forbes.comm.constant.UpdateValid;
@@ -30,6 +33,7 @@ public class ZGAd extends BaseEntity {
      */
     @ApiModelProperty(value = "广告编码",example="")
     @NotEmpty(message="广告编码为空",groups = {UpdateValid.class, SaveValid.class})
+    @QueryColumn(column = "ad_code",sqlKeyword = SqlKeyword.LIKE)
     private String adCode;
 
     /**
@@ -41,6 +45,7 @@ public class ZGAd extends BaseEntity {
      */
     @ApiModelProperty(value = "广告名称",example="")
     @NotEmpty(message="广告名称为空",groups = {UpdateValid.class, SaveValid.class})
+    @QueryColumn(column = "name",sqlKeyword = SqlKeyword.LIKE)
     private String name;
 
     /**
@@ -62,6 +67,7 @@ public class ZGAd extends BaseEntity {
      */
     @ApiModelProperty(value = "到期时间",example="")
     @NotNull(message ="到期时间为空",groups = {UpdateValid.class, SaveValid.class})
+    @JsonFormat(pattern="yyyy-MM-dd")
     private Date expireDate;
 
     /**
@@ -74,6 +80,7 @@ public class ZGAd extends BaseEntity {
     @ApiModelProperty(value = "0-滚动文字1-轮播图2-静态图",example="0")
     @ValidEnum(classzz = AdTypeEnum.class,bizCode = "006001002",bizErrorMsg = "%s广告类型不存在")
     @NotNull(message ="广告类型为空",groups = {UpdateValid.class, SaveValid.class})
+    @QueryColumn(column = "ad_type",sqlKeyword = SqlKeyword.EQ)
     private Integer adType;
 
     /**

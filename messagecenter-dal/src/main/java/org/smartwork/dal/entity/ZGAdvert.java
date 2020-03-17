@@ -1,9 +1,11 @@
 package org.smartwork.dal.entity;
 
 import com.baomidou.mybatisplus.annotation.TableName;
+import com.baomidou.mybatisplus.core.enums.SqlKeyword;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
+import org.forbes.comm.annotations.QueryColumn;
 import org.forbes.comm.annotations.ValidUnique;
 import org.forbes.comm.constant.SaveValid;
 import org.forbes.comm.constant.UpdateValid;
@@ -27,6 +29,7 @@ public class ZGAdvert extends BaseEntity {
     @ApiModelProperty(value = "广告位编码",example="")
     @ValidUnique(column = "ad_code",bizCode = "006001001",bizErrorMsg = "%s编码已经存在")
     @NotEmpty(message="广告位编码为空",groups = {UpdateValid.class, SaveValid.class})
+    @QueryColumn(column = "ad_code",sqlKeyword = SqlKeyword.LIKE)
     private String adCode;
 
     /**
@@ -37,5 +40,6 @@ public class ZGAdvert extends BaseEntity {
      * Nullable:  true
      */
     @ApiModelProperty(value = "备注说明",example="")
+    @QueryColumn(column = "remarks",sqlKeyword = SqlKeyword.LIKE)
     private String remarks;
 }

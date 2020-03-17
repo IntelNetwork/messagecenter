@@ -1,9 +1,11 @@
 package org.smartwork.dal.entity;
 
 import com.baomidou.mybatisplus.annotation.TableName;
+import com.baomidou.mybatisplus.core.enums.SqlKeyword;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
+import org.forbes.comm.annotations.QueryColumn;
 import org.forbes.comm.constant.SaveValid;
 import org.forbes.comm.constant.UpdateValid;
 import org.forbes.comm.entity.BaseEntity;
@@ -26,6 +28,7 @@ public class ZGNewsClassify extends BaseEntity {
      */
     @ApiModelProperty(value = "分类名称",example="")
     @NotEmpty(message = "分类名称为空",groups = {UpdateValid.class, SaveValid.class})
+    @QueryColumn(column = "name",sqlKeyword = SqlKeyword.LIKE)
     private String name;
 
     /**

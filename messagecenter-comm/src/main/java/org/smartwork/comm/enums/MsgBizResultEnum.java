@@ -15,6 +15,7 @@ public enum MsgBizResultEnum {
 	RELEASE_OR_CANCELLED("006001004","广告已发布/已取消","%s已发布/已取消"),
 	CANCELLED("006001005","广告已取消","%s已取消"),
 	MSG_TYPE_NOT_EXISTS("006002001","业务编码不存在","%s业务编码不存在"),
+	MSG_TYPE_EXISTS("006002002","业务编码已存在","%s业务编码已存在"),
 	N_RELEASE_OR_CANCELLED("006002003","广告已发布/已取消","%s已发布/已取消"),
 	N_CANCELLED("006002004","广告已取消","%s已取消");
 

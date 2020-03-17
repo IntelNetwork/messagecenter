@@ -21,7 +21,8 @@ public class SmartworkApplication {
      * @修改人 (修改了该文件 ， 请填上修改人的名字)
      * @修改日期 (请填上修改该文件时的日期)
      */
-    public static void main(String[] args) {
+    public static void main(String[] args)
+    {
         SpringApplication.run(SmartworkApplication.class, args);
     }
 }
