@@ -22,17 +22,12 @@
         </dependency>
         <dependency>
             <groupId>org.smartwork</groupId>
-            <artifactId>messagecenter-dal</artifactId>
+            <artifactId>messagecenter-api</artifactId>
             <version>0.0.1-SNAPSHOT</version>
         </dependency>
         <dependency>
             <groupId>org.smartwork</groupId>
             <artifactId>messagecenter-biz</artifactId>
-            <version>0.0.1-SNAPSHOT</version>
-        </dependency>
-        <dependency>
-            <groupId>org.smartwork</groupId>
-            <artifactId>messagecenter-api</artifactId>
             <version>0.0.1-SNAPSHOT</version>
         </dependency>
     </dependencies>
