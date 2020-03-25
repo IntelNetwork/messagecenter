@@ -7,6 +7,7 @@ import org.forbes.comm.enums.BizResultEnum;
 import org.forbes.comm.exception.ForbesException;
 import org.smartwork.biz.service.IZGAdvertService;
 import org.smartwork.comm.constant.AdConstant;
+import org.smartwork.comm.enums.MsgBizResultEnum;
 import org.smartwork.comm.enums.ReleaseStateEnum;
 import org.smartwork.dal.entity.ZGAd;
 import org.smartwork.dal.entity.ZGAdvert;
@@ -36,8 +37,8 @@ public class ZGAdvertServiceImpl extends ServiceImpl<ZGAdvertMapper, ZGAdvert> i
     public boolean removeById(Serializable id) {
         Integer count=zgAdMapper.selectCount(new QueryWrapper<ZGAd>().eq(AdConstant.ADVERTID,id));
         if (count>0){
-            throw new ForbesException(BizResultEnum.ADMIN_FLAG_EXISTS.getBizCode()
-                    ,String.format(BizResultEnum.ADMIN_FLAG_EXISTS.getBizMessage()));
+            throw new ForbesException(MsgBizResultEnum.ADVERT_HAVE_RELEASED_DEL.getBizCode()
+                    ,String.format(MsgBizResultEnum.ADVERT_HAVE_RELEASED_DEL.getBizMessage()));
         }
         boolean delBool =  SqlHelper.retBool(baseMapper.deleteById(id));
         return delBool;
@@ -52,8 +53,8 @@ public class ZGAdvertServiceImpl extends ServiceImpl<ZGAdvertMapper, ZGAdvert> i
         idList.stream().forEach(id ->{
             Integer count=zgAdMapper.selectCount(new QueryWrapper<ZGAd>().eq(AdConstant.ADVERTID,id));
             if (count>0){
-                throw new ForbesException(BizResultEnum.ADMIN_FLAG_EXISTS.getBizCode()
-                        ,String.format(BizResultEnum.ADMIN_FLAG_EXISTS.getBizMessage()));
+                throw new ForbesException(MsgBizResultEnum.ADVERT_HAVE_RELEASED_DEL.getBizCode()
+                        ,String.format(MsgBizResultEnum.ADVERT_HAVE_RELEASED_DEL.getBizMessage()));
             }
         });
         boolean delBool =  SqlHelper.retBool(baseMapper.deleteBatchIds(idList));

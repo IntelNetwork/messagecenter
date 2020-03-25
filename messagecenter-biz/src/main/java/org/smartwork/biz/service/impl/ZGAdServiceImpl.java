@@ -5,6 +5,7 @@ import com.baomidou.mybatisplus.extension.toolkit.SqlHelper;
 import org.forbes.comm.enums.BizResultEnum;
 import org.forbes.comm.exception.ForbesException;
 import org.smartwork.biz.service.IZGAdService;
+import org.smartwork.comm.enums.MsgBizResultEnum;
 import org.smartwork.comm.enums.ReleaseStateEnum;
 import org.smartwork.dal.entity.ZGAd;
 import org.smartwork.dal.mapper.ZGAdMapper;
@@ -28,8 +29,8 @@ public class ZGAdServiceImpl extends ServiceImpl<ZGAdMapper, ZGAd> implements IZ
     public boolean removeById(Serializable id) {
         ZGAd zgAd = baseMapper.selectById(id);
         if (zgAd.getReleaseState().equals(ReleaseStateEnum.HAVE_RELEASED.getCode())){
-            throw new ForbesException(BizResultEnum.ADMIN_FLAG_EXISTS.getBizCode()
-                    ,String.format(BizResultEnum.ADMIN_FLAG_EXISTS.getBizMessage()));
+            throw new ForbesException(MsgBizResultEnum.AD_HAVE_RELEASED_DEL.getBizCode()
+                    ,String.format(MsgBizResultEnum.AD_HAVE_RELEASED_DEL.getBizMessage()));
         }
         boolean delBool =  SqlHelper.retBool(baseMapper.deleteById(id));
         return delBool;
@@ -44,8 +45,8 @@ public class ZGAdServiceImpl extends ServiceImpl<ZGAdMapper, ZGAd> implements IZ
         List<ZGAd> zgAds =  baseMapper.selectBatchIds(idList);
         zgAds.stream().forEach(zgAd -> {
             if (zgAd.getReleaseState().equals(ReleaseStateEnum.HAVE_RELEASED.getCode())){
-                throw new ForbesException(BizResultEnum.ADMIN_FLAG_EXISTS.getBizCode()
-                        ,String.format(BizResultEnum.ADMIN_FLAG_EXISTS.getBizMessage()));
+                throw new ForbesException(MsgBizResultEnum.AD_HAVE_RELEASED_DEL.getBizCode()
+                        ,String.format(MsgBizResultEnum.AD_HAVE_RELEASED_DEL.getBizMessage()));
             }
         });
         boolean delBool =  SqlHelper.retBool(baseMapper.deleteBatchIds(idList));
