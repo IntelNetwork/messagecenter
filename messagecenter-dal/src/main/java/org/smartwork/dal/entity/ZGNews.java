@@ -77,6 +77,15 @@ public class ZGNews extends BaseEntity {
     @QueryColumn(column = "content",sqlKeyword = SqlKeyword.LIKE)
     private String content;
 
+    /**
+     * 新闻分类id
+     *
+     * Table:     fb_zg_ad
+     * Column:    orders
+     * Nullable:  true
+     */
+    @ApiModelProperty(value = "新闻分类id",example="0")
+    private Long classifyId;
 
     /****附件信息
      */

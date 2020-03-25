@@ -122,4 +122,14 @@ public class ZGAd extends BaseEntity {
      */
     @ApiModelProperty(value = "排序",example="0")
     private Integer orders;
+
+    /**
+     * 广告位id
+     *
+     * Table:     fb_zg_ad
+     * Column:    orders
+     * Nullable:  true
+     */
+    @ApiModelProperty(value = "广告位id",example="0")
+    private Long advertId;
 }
