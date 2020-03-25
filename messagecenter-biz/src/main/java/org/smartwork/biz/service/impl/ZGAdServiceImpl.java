@@ -27,8 +27,6 @@ public class ZGAdServiceImpl extends ServiceImpl<ZGAdMapper, ZGAd> implements IZ
     @Override
     public boolean removeById(Serializable id) {
         ZGAd zgAd = baseMapper.selectById(id);
-        zgAd.getReleaseState();
-        ReleaseStateEnum.HAVE_RELEASED.getCode();
         if (zgAd.getReleaseState().equals(ReleaseStateEnum.HAVE_RELEASED.getCode())){
             throw new ForbesException(BizResultEnum.ADMIN_FLAG_EXISTS.getBizCode()
                     ,String.format(BizResultEnum.ADMIN_FLAG_EXISTS.getBizMessage()));
@@ -44,11 +42,12 @@ public class ZGAdServiceImpl extends ServiceImpl<ZGAdMapper, ZGAd> implements IZ
     @Override
     public boolean removeByIds(Collection<? extends Serializable> idList) {
         List<ZGAd> zgAds =  baseMapper.selectBatchIds(idList);
-        long classIdCount =  zgAds.stream().filter(p -> !p.getReleaseState().equals(ReleaseStateEnum.HAVE_RELEASED.getCode())).count();
-        if (classIdCount>0){
-            throw new ForbesException(BizResultEnum.ADMIN_FLAG_EXISTS.getBizCode()
-                    ,String.format(BizResultEnum.ADMIN_FLAG_EXISTS.getBizMessage()));
-        }
+        zgAds.stream().forEach(zgAd -> {
+            if (zgAd.getReleaseState().equals(ReleaseStateEnum.HAVE_RELEASED.getCode())){
+                throw new ForbesException(BizResultEnum.ADMIN_FLAG_EXISTS.getBizCode()
+                        ,String.format(BizResultEnum.ADMIN_FLAG_EXISTS.getBizMessage()));
+            }
+        });
         boolean delBool =  SqlHelper.retBool(baseMapper.deleteBatchIds(idList));
         return delBool;
     }
