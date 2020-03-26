@@ -1,11 +1,14 @@
 package org.smartwork.dal.entity;
 
 import com.baomidou.mybatisplus.annotation.TableName;
+import com.baomidou.mybatisplus.core.enums.SqlKeyword;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
+import org.forbes.comm.annotations.QueryColumn;
 import org.forbes.comm.entity.BaseEntity;
 
+import javax.validation.constraints.NotEmpty;
 import java.util.Date;
 
 /**
@@ -23,6 +26,7 @@ public class ZGMsgLog extends BaseEntity {
      * Nullable:  true
      */
     @ApiModelProperty(value = "0-短信1-公众号2-异步消息",example="")
+    @QueryColumn(column = "ad_type",sqlKeyword = SqlKeyword.EQ)
     private Integer msgType;
 
     /**
@@ -32,7 +36,9 @@ public class ZGMsgLog extends BaseEntity {
      * Column:    content
      * Nullable:  true
      */
-    @ApiModelProperty(value = "发送内容",example="")
+    @ApiModelProperty(value = "发送内容",example="",required = true)
+    @NotEmpty(message = "发送内容不能为空")
+    @QueryColumn(column = "content",sqlKeyword = SqlKeyword.LIKE)
     private String content;
 
     /**

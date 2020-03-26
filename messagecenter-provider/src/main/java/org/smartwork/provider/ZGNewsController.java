@@ -35,7 +35,7 @@ public class ZGNewsController extends BaseProvider<IZGNewsService, ZGNews> {
             @ApiResponse(code=200,message = Result.COMM_ACTION_MSG),
             @ApiResponse(code=500,message = Result.COMM_ACTION_ERROR_MSG)
     })
-    @RequestMapping(value = "/change-release-state",method = RequestMethod.PUT)
+    @RequestMapping(value = "/change-release-state/{id}",method = RequestMethod.PUT)
     public Result<ZGNews> changeReleaseState(@PathVariable Long id, @RequestParam(value = "releaseState") Integer releaseState){
         ZGNews news = baseService.getById(id);
         Result<ZGNews> result = new Result<ZGNews>();
