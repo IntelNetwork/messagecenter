@@ -58,7 +58,8 @@ public class ZGMsgTemplate extends BaseEntity {
      * Column:    content
      * Nullable:  true
      */
-    @ApiModelProperty(value = "模板内容",example="")
+    @ApiModelProperty(value = "模板内容",example="",required = true)
+    @NotEmpty(message = "模板内容不能为空")
     private String content;
 
 
