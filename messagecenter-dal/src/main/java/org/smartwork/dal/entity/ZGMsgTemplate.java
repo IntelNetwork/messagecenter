@@ -1,9 +1,11 @@
 package org.smartwork.dal.entity;
 
 import com.baomidou.mybatisplus.annotation.TableName;
+import com.baomidou.mybatisplus.core.enums.SqlKeyword;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
+import org.forbes.comm.annotations.QueryColumn;
 import org.forbes.comm.annotations.ValidEnum;
 import org.forbes.comm.annotations.ValidUnique;
 import org.forbes.comm.constant.SaveValid;
@@ -32,6 +34,7 @@ public class ZGMsgTemplate extends BaseEntity {
     @ApiModelProperty(value = "0-短信1-公众号2-邮件",example="0")
     @NotNull(message = "消息类型为空",groups = {UpdateValid.class, SaveValid.class})
     @ValidEnum(classzz = MsgTypeEnum.class,bizCode = "006002001",bizErrorMsg = "%s消息类型不存在")
+    @QueryColumn(column = "msg_type",sqlKeyword = SqlKeyword.EQ)
     private Integer msgType;
 
     /**
@@ -45,6 +48,7 @@ public class ZGMsgTemplate extends BaseEntity {
     @NotEmpty(message = "业务编码为空",groups = {UpdateValid.class, SaveValid.class})
     @ValidEnum(classzz = BusCodeEnum.class,bizCode = "006002001",bizErrorMsg = "%s业务编码不存在")
     @ValidUnique(column = "bus_code",bizCode = "006002003",bizErrorMsg = "%s业务编码已存在")
+    @QueryColumn(column = "bus_code",sqlKeyword = SqlKeyword.EQ)
     private String busCode;
 
 
@@ -58,7 +62,9 @@ public class ZGMsgTemplate extends BaseEntity {
      * Column:    content
      * Nullable:  true
      */
-    @ApiModelProperty(value = "模板内容",example="")
+    @ApiModelProperty(value = "模板内容",example="",required = true)
+    @NotEmpty(message = "模板内容不能为空")
+    @QueryColumn(column = "content",sqlKeyword = SqlKeyword.LIKE)
     private String content;
 
 

@@ -1,10 +1,7 @@
 package org.smartwork.provider;
 
 import com.baomidou.mybatisplus.core.conditions.update.UpdateWrapper;
-import io.swagger.annotations.Api;
-import io.swagger.annotations.ApiOperation;
-import io.swagger.annotations.ApiResponse;
-import io.swagger.annotations.ApiResponses;
+import io.swagger.annotations.*;
 import org.forbes.comm.enums.BizResultEnum;
 import org.forbes.comm.utils.ConvertUtils;
 import org.forbes.comm.vo.Result;
@@ -98,4 +95,5 @@ public class ZGAdController extends BaseProvider<IZGAdService, ZGAd> {
                 .eq("id",ad.getId()));
         return result;
     }
+    
 }

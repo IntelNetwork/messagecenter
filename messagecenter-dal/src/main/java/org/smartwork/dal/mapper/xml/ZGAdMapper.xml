@@ -16,9 +16,10 @@
     <result column="new_win" jdbcType="TINYINT" property="newWin" />
     <result column="req_url" jdbcType="VARCHAR" property="reqUrl" />
     <result column="orders" jdbcType="TINYINT" property="orders" />
+    <result column="advert_id" jdbcType="BIGINT" property="advertId" />
   </resultMap>
   <sql id="Base_Column_List">
     id, create_by, create_time, update_by, update_time, ad_code, name, release_state, 
-    expire_date, ad_type, img_path, new_win, req_url, orders
+    expire_date, ad_type, img_path, new_win, req_url, orders,advert_id
   </sql>
 </mapper>

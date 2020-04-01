@@ -11,12 +11,13 @@
     <result column="title" jdbcType="VARCHAR" property="title" />
     <result column="release_state" jdbcType="BIGINT" property="releaseState" />
     <result column="release_time" jdbcType="TIMESTAMP" property="releaseTime" />
+    <result column="classify_id" jdbcType="BIGINT" property="classifyId" />
   </resultMap>
   <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="org.smartwork.dal.entity.ZGNews">
     <result column="content" jdbcType="LONGVARCHAR" property="content" />
   </resultMap>
   <sql id="Base_Column_List">
-    id, create_by, create_time, update_by, update_time, icon, title, release_state, release_time
+    id, create_by, create_time, update_by, update_time, icon, title, release_state, release_time,classify_id
   </sql>
   <sql id="Blob_Column_List">
     content

@@ -17,6 +17,7 @@ import org.smartwork.comm.enums.SuccessStateEnum;
 import org.smartwork.dal.entity.ZGMsgLog;
 import org.smartwork.dal.entity.ZGMsgTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.kafka.annotation.KafkaListener;
 import org.springframework.stereotype.Component;
 
@@ -29,6 +30,7 @@ import java.util.Optional;
 
 @Slf4j
 @Component
+@ConditionalOnProperty(value = "spring.kafka.bootstrap-servers")
 public class SmsProvider {
 
     @Autowired
